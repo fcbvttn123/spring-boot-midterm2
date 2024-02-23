@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<link href="/index.css" rel="stylesheet"/>
+</head>
+<body>
+	<h1>Welcome to Consuming RESTful!</h1>
+	<table th:if="${exerciseList != null}">
+		<tr>
+			<th>Title</th>
+			<th>Duration</th>
+			<th>Performance Desc</th>
+			<th>Calories</th>
+			<th>Equipment Desc</th>
+			<th>&nbsp;</th>
+			<th>&nbsp;</th>
+		</tr>
+		<tr th:each="s : ${exerciseList}">
+			<td th:text="${s.title}"></td>
+			<td th:text="${s.duration}"></td>
+			<td th:text="${s.performDesc}"></td>
+			<td th:text="${s.calories}"></td>
+			<td th:text="${s.equipmentDesc}"></td>
+			<td><a th:href="@{/update/} + ${s.id}">Edit</a></td>
+			<td><a th:href="@{/delete/} + ${s.id}">Delete</a></td>
+		</tr>
+	</table>
+	<br>
+	<hr>
+	<br>
+	<a class="btn" th:href="@{/blankForm}">Insert new Exercise!</a>
+</body>
+</html>

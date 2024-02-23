@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<link href="/index.css" rel="stylesheet"/>
+</head>
+<body>
+	<h1>Form</h1>
+	
+	<div th:if="${exercise.id} != null">
+		<form method="post" th:action="@{/updateEx}" th:object="${exercise}">
+			<input type="hidden" th:field="*{id}" /><br/>
+			
+			<label for="title">Title:</label>
+   			<input type="text" th:field="*{title}" /><br/>
+   			
+   			<label for="duration">Duration:</label>
+   			<input type="number" th:field="*{duration}" /><br/>
+   			
+   			<label for="performDesc">Performance Description:</label>
+   			<input type="text" th:field="*{performDesc}" /><br/>
+   			
+   			<label for="calories">Calories:</label>
+   			<input type="number" th:field="*{calories}" /><br/>
+   			
+   			<label for="equipmentDesc">Equipment Description:</label>
+   			<input type="text" th:field="*{equipmentDesc}" /><br/>
+			
+			<input type="submit" value="Update Exercise!">
+		</form>
+	</div>
+
+    <div th:if="${exercise.id} == null">
+		<form method="post" th:action="@{/insertEx}" th:object="${exercise}">
+			<input type="hidden" th:field="*{id}" /><br/>
+			
+			<label for="title">Title:</label>
+   			<input type="text" th:field="*{title}" /><br/>
+   			
+   			<label for="duration">Duration:</label>
+   			<input type="number" th:field="*{duration}" /><br/>
+   			
+   			<label for="performDesc">Performance Description:</label>
+   			<input type="text" th:field="*{performDesc}" /><br/>
+   			
+   			<label for="calories">Calories:</label>
+   			<input type="number" th:field="*{calories}" /><br/>
+   			
+   			<label for="equipmentDesc">Equipment Description:</label>
+   			<input type="text" th:field="*{equipmentDesc}" /><br/>
+			
+			<input type="submit" value="Insert Exercise!">
+		</form>
+	</div>
+</body>
+</html>
